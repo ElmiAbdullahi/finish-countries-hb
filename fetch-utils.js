@@ -30,5 +30,9 @@ export async function getCountries(name, continent) {
 
 export async function getContinents() {
     // > Part B: await client query from country_continents
+    let query = client.from('country_continents').select('*').order('name');
+
     // (select all columns) and return response
+    const response = await query;
+    return response;
 }

@@ -22,10 +22,13 @@ window.addEventListener('load', async () => {
     // > Part A: call findCountries (with no arguments)
     findCountries();
     // > Part B: await the call to get continents to get the response
-
+    const response = await getContinents(continents);
+    console.log(response);
     // > Part B: Assign to state the:
     //      - error,
+    error = response.error;
     //      - data (to the continents variable)
+    continents = response.data;
 
     if (!error) {
         displayContinentOptions();
@@ -82,6 +85,8 @@ function displayNotifications() {
 
 function displayContinentOptions() {
     for (const continent of continents) {
-        // > Part B: render and append options to select
+        const continentEl = renderContinentOption(continent);
+        continentSelect.append(continentEl);
     }
+    // > Part B: render and append options to select
 }
