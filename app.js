@@ -46,6 +46,7 @@ async function findCountries(name, continent) {
     //      - data (to the countries variable)
     countries = response.data;
     // > Part D: Assign to state the:
+    count = response.count;
     //      - count (of db records)
 
     displayNotifications();
@@ -79,6 +80,13 @@ function displayNotifications() {
     } else {
         notificationDisplay.classList.remove('error');
         // > Part D: Display a message with
+        if (error) {
+            notificationDisplay.classList.add('error');
+            notificationDisplay.textContent = error.message;
+        } else {
+            notificationDisplay.classList.add('error');
+            notificationDisplay.textContent = `Showing ${countries.length} of ${count} matching countries`;
+        }
         //      - how many items were returned in countries array
         //      - how many total matching countries were in the db
     }

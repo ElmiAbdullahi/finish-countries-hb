@@ -9,7 +9,7 @@ export async function getCountries(name, continent) {
 
     // > Part A: Implement the client query from countries:
     //   1. select all columns
-    let query = client.from('countries').select('*').order('name').limit(100);
+    let query = client.from('countries').select('*', { count: 'exact' }).order('name').limit(100);
 
     //   2. order by country name
     //   3. limit to 100 countries
